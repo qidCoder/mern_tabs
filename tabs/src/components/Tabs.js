@@ -22,7 +22,10 @@ const Tabs = props => {
                     }
 
                     return (
-                        <div key={i} onClick={e =>{setSelectedIdx(i)}} style={tab_style}>
+                        <div key={i} onClick={e =>{
+                            setSelectedIdx(i);
+                            tab_list[i].callback();
+                        }} style={tab_style}>
                             {item.tab_name}
                         </div>
                     )
