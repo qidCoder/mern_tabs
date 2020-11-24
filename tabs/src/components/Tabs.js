@@ -8,8 +8,21 @@ const Tabs = props => {
         <div style={{display: 'flex', flexWrap: 'wrap'}}>
             {
                 tab_list.map((item, i) => {
+                    //adding in conditional styling
+                    const tab_style = {
+                        width: '300px', 
+                        border: '1px solid black', 
+                        margin: '4px', 
+                        padding: '4px',
+                    };
+
+                    if (selectedIdx === i){
+                        tab_style.backgroundColor = "black";
+                        tab_style.color = "white";
+                    }
+
                     return (
-                        <div key={i} style={{width: '300px', border: '1px solid black', margin: '4px', padding: '4px'}} onClick={e =>{setSelectedIdx(i)}}>
+                        <div key={i} onClick={e =>{setSelectedIdx(i)}} style={tab_style}>
                             {item.tab_name}
                         </div>
                     )
